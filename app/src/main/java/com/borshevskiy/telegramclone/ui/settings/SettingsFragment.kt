@@ -1,10 +1,9 @@
 package com.borshevskiy.telegramclone.ui.settings
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import com.borshevskiy.telegramclone.R
 import com.borshevskiy.telegramclone.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -18,8 +17,12 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        binding.textSettings.text = "SettingsFragment"
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.settings_actions, menu)
     }
 
     override fun onDestroyView() {

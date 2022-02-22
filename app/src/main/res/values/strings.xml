@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TelegramClone</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_chat">Диалоги</string>
+    <string name="menu_create_group">Создать группу</string>
+    <string name="menu_create_secret_chat">Создать секретный чат</string>
+    <string name="menu_create_channel">Создать канал</string>
+    <string name="menu_contacts">Контакты</string>
+    <string name="menu_calls">Звонки</string>
+    <string name="menu_favorites">Избранное</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_invite_friends">Пригласить друзей</string>
+    <string name="menu_questions_about_telegram">Вопросы о Telegram</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

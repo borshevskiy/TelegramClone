@@ -57,4 +57,14 @@
         android:name="com.borshevskiy.telegramclone.ui.about.AboutFragment"
         android:label="@string/menu_questions_about_telegram"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_enterCode"
+        android:name="com.borshevskiy.telegramclone.ui.regEnter.EnterCodeFragment"
+        android:label="@string/enter_verification_code"
+        tools:layout="@layout/fragment_enter_code" />
+    <fragment
+        android:id="@+id/nav_enterPhoneNumber"
+        android:name="com.borshevskiy.telegramclone.ui.regEnter.EnterPhoneNumberFragment"
+        android:label="@string/register_toast_enter_phone"
+        tools:layout="@layout/fragment_enter_phone_number" />
 </navigation>

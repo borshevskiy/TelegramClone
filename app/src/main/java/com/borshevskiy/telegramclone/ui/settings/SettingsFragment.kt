@@ -3,8 +3,10 @@ package com.borshevskiy.telegramclone.ui.settings
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.borshevskiy.telegramclone.R
 import com.borshevskiy.telegramclone.databinding.FragmentSettingsBinding
+import com.borshevskiy.telegramclone.utils.AUTH
 
 class SettingsFragment : Fragment() {
 
@@ -23,6 +25,14 @@ class SettingsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.settings_actions, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.settings_menu_exit) {
+            AUTH.signOut()
+            findNavController().navigate(R.id.nav_enterPhoneNumber)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {

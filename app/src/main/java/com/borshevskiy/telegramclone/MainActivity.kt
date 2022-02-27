@@ -9,6 +9,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.borshevskiy.telegramclone.databinding.ActivityMainBinding
+import com.borshevskiy.telegramclone.utils.AUTH
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AUTH = FirebaseAuth.getInstance()
         navController = findNavController(R.id.nav_host_fragment_content_main)
+        if (AUTH.currentUser == null) {
+            navController.navigate(R.id.nav_enterPhoneNumber)
+        }
         setSupportActionBar(binding.toolbar)
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -30,12 +36,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_about), binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
-
-        if (false) {
-        } else {
-            navController.navigate(R.id.nav_enterPhoneNumber)
-        }
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

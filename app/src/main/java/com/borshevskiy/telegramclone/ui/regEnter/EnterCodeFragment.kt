@@ -6,15 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.borshevskiy.telegramclone.R
 import com.borshevskiy.telegramclone.databinding.FragmentEnterCodeBinding
+import com.borshevskiy.telegramclone.utils.AUTH
 import com.borshevskiy.telegramclone.utils.AppTextWatcher
 import com.borshevskiy.telegramclone.utils.showToast
+import com.google.firebase.auth.PhoneAuthProvider
 
 class EnterCodeFragment : Fragment() {
 
     private var _binding: FragmentEnterCodeBinding? = null
     private val binding get() = _binding!!
+
+    private val args by navArgs<EnterCodeFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,8 +41,16 @@ class EnterCodeFragment : Fragment() {
     }
 
     private fun codeVerification() {
-        showToast("Ok")
-        findNavController().navigate(R.id.nav_chat)
+        val credential = PhoneAuthProvider.getCredential(
+            args.currentCode.id,
+            binding.registerInputCode.text.toString()
+        )
+        AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                showToast("Добро пожаловаться")
+                findNavController().navigate(R.id.nav_chat)
+            } else showToast(task.exception?.message.toString())
+        }
     }
 
     override fun onDestroyView() {

@@ -61,10 +61,18 @@
         android:id="@+id/nav_enterCode"
         android:name="com.borshevskiy.telegramclone.ui.regEnter.EnterCodeFragment"
         android:label="@string/enter_verification_code"
-        tools:layout="@layout/fragment_enter_code" />
+        tools:layout="@layout/fragment_enter_code" >
+        <argument
+            android:name="currentCode"
+            app:argType="com.borshevskiy.telegramclone.data.models.VerificationCode" />
+    </fragment>
     <fragment
         android:id="@+id/nav_enterPhoneNumber"
         android:name="com.borshevskiy.telegramclone.ui.regEnter.EnterPhoneNumberFragment"
         android:label="@string/register_toast_enter_phone"
-        tools:layout="@layout/fragment_enter_phone_number" />
+        tools:layout="@layout/fragment_enter_phone_number" >
+        <action
+            android:id="@+id/action_nav_enterPhoneNumber_to_nav_enterCode"
+            app:destination="@id/nav_enterCode" />
+    </fragment>
 </navigation>
